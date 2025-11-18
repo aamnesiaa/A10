@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Example Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Cookie Example Page</h1>
+    <p>
+      On your first visit, this page saves a small cookie in your browser.
+      When you refresh the page, it reads that cookie and shows what was stored.
+    </p>
+
+    <div id="msg" class="message"></div>
+
+    <div class="label">
+      Text currently saved in our sample cookie:
+    </div>
+    <code id="cookieVal" class="code-block"></code>
+
+    <div class="label">
+      Full value of <code class="inline-code">document.cookie</code> for this page:
+    </div>
+    <code id="raw" class="code-block"></code>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
