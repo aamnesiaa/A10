@@ -16,22 +16,24 @@ function getCookie(name) {
   return null;
 }
 
-var cookieName = "demoCookie";
+var cookieName = "userTextCookie";
 var existing = getCookie(cookieName);
 var msg = document.getElementById("msg");
 var val = document.getElementById("cookieVal");
 var raw = document.getElementById("raw");
 
 if (existing === null) {
-  var now = new Date().toString();
-  var value = "This note was stored in a cookie at: " + now;
-  setCookie(cookieName, value, 60 * 60 * 24);
+  var entered = window.prompt("Type some text to save in a cookie:", "");
+  if (entered === null || entered === "") {
+    entered = "No text was entered; this is the default cookie value.";
+  }
+  setCookie(cookieName, entered, 60 * 60 * 24);
   msg.textContent =
-    "No saved cookie was found for this browser. A new one has just been created below. Refresh the page to see it being read.";
-  val.textContent = "(cookie has just been written; reload the page to read it)";
+    "A new cookie has been created using the text you just provided. Reload this page to see it displayed below.";
+  val.textContent = "(cookie has just been stored; refresh the page to show its value)";
 } else {
   msg.textContent =
-    "A cookie from an earlier visit was found and read. Its contents are shown below.";
+    "A cookie from a previous visit was found and read. Its stored text is shown here.";
   val.textContent = existing;
 }
 
